@@ -1,0 +1,13 @@
+@mixin clickable-element {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin clickable-element-active {
+  outline: none;
+  border: 1px solid #969696;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.15);
+  transform: translate(-2px, -2px);
+}

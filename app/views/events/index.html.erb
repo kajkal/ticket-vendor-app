@@ -1,24 +1,22 @@
-<main class="page-content">
+<header>
+  <h1>Events</h1>
+</header>
 
+<main>
   <p id="notice"><%= notice %></p>
 
-  <h1>Event List</h1>
-
-  <ul class="event-list">
+  <section class="event-list">
     <% @events.each do |event| %>
-      <%= link_to event do %>
-        <li class="event-card">
-          <div class="artist"><%= event.artist %></div>
-          <div class="description"><%= event.description %></div>
-          <div class="date"><%= event.event_date %></div>
-          <div class="price">from <%= number_to_currency(event.price_low) %> to <%= number_to_currency(event.price_high) %></div>
-        </li>
+      <%= link_to event, class: "clean-anchor event-card" do %>
+        <div class="artist"><%= event.artist %></div>
+        <div class="description"><%= event.description %></div>
+        <div class="date"><%= event.event_date %></div>
+        <div class="price">from <%= number_to_currency(event.price_low) %> to <%= number_to_currency(event.price_high) %></div>
       <% end %>
     <% end %>
-  </ul>
-
-  <div class="page-actions">
-    <%= link_to 'Add new Event', new_event_path %>
-  </div>
-
+  </section>
 </main>
+
+<footer>
+  <%= link_to 'Add new Event', new_event_path, class: "clean-anchor" %>
+</footer>

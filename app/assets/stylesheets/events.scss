@@ -1,29 +1,12 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-@import 'global';
+@import 'mixins';
 
 .event-list {
-  font-size: inherit;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
 
-  > *:not(:last-child) {
-    .event-card {
-      margin-bottom: 1em;
-    }
-  }
-
-  > *, > *:hover, > *:visited {
-    color: inherit;
-    text-decoration: inherit;
-  }
-
-  > *:hover, > *:active, > *:focus {
-    outline: none;
-    .event-card {
+  .event-card {
+    &:hover, &:active, &:focus {
       @include clickable-element-active;
     }
   }
@@ -31,6 +14,7 @@
 
 .event-card {
   @include clickable-element;
+
   display: grid;
   grid-template-areas:
           "artist artist"
@@ -60,3 +44,19 @@
   }
 }
 
+.selectable-anchor {
+  display: flex;
+  margin-top: 2rem;
+  cursor: pointer;
+  @include clickable-element;
+  &:hover, &:active, &:focus, &:not(.collapsed) {
+    @include clickable-element-active;
+  }
+}
+
+.card-body {
+  padding: 2rem;
+  & > * {
+    width: 100%;
+  }
+}

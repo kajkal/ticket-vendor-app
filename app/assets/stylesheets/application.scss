@@ -1,0 +1,80 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "tickets";
+@import "events";
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    width: 80rem;
+    margin: 0 auto 2rem;
+}
+
+header {
+  display: flex;
+  margin: 4rem 0;
+  h1 {
+    font-size: 4rem;
+    margin: auto 0;
+  }
+}
+
+footer {
+  margin-top: 4rem;
+  display: flex;
+
+  > * {
+    @include clickable-element;
+    margin-right: 1em;
+  }
+
+  > *:hover, > *:active, > *:focus {
+    @include clickable-element-active;
+  }
+
+  > *, > *:hover, > *:visited {
+    color: inherit;
+    text-decoration: inherit;
+    background: inherit;
+  }
+}
+
+.clean-anchor {
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:active:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em !important;
+
+  .field_with_errors {
+    background-color: inherit;
+    padding: 0;
+    display: flex;
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #cc1f12;
+    }
+  }
+
+  input, textarea {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}

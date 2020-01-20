@@ -1,8 +1,9 @@
-<main class="page-content">
-
-  <p id="notice"><%= notice %></p>
-
+<header>
   <h1>Event</h1>
+</header>
+
+<main>
+  <p id="notice"><%= notice %></p>
 
   <div class="event-card">
     <div class="artist"><%= @event.artist %></div>
@@ -11,11 +12,42 @@
     <div class="price">from <%= number_to_currency(@event.price_low) %> to <%= number_to_currency(@event.price_high) %></div>
   </div>
 
-  <%= render "tickets_list", tickets: @event.tickets %>
-  <%= render "new_ticket", ticket: Ticket.new(:event_id => @event.id) %>
+  <div class="accordion" id="accordionExample">
 
-  <div class="page-actions">
-    <%= link_to 'Back to event list', events_path %>
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <a class="clean-anchor selectable-anchor collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Tickets
+          <span style="margin-left: auto">
+            <%= @event.tickets.length %>
+          </span>
+        </a>
+      </div>
+
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <%= render "tickets_list", tickets: @event.tickets %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <a class="clean-anchor selectable-anchor collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Reserve ticket
+        </a>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+        <div class="card-body">
+          <%= render "new_ticket", ticket: Ticket.new(:event_id => @event.id) %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </main>
+
+<footer>
+  <%= link_to 'Back to event list', events_path, class: "clean-anchor" %>
+</footer>
