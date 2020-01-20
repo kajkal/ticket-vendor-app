@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Ticket Vendor</title>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            margin: 0;
+        }
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 50em;
+            margin: 0 auto 2em;
+        }
+        .page-content h1 {
+            font-size: 4rem;
+            margin-bottom: 3rem;
+        }
+        .main-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1em;
+        }
+
+        .link, .link:hover, .link:visited {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        .link {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 5em 1em;
+            transition: all 0.2s ease-in-out;
+            align-self: center;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .link:hover, .link:active, .link:focus {
+            outline: none;
+            border: 1px solid #969696;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.15);
+            transform: translate(-2px, -2px);
+        }
+    </style>
+</head>
+<body>
+
+<main class="page-content">
+    <h1>Ticket Vendor</h1>
+
+    <div class="main-links">
+        <a class="link" href="tickets">Tickets</a>
+        <a class="link" href="events">Events</a>
+    </div>
+</main>
+
+</body>
+</html>

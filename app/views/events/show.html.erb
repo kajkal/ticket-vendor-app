@@ -1,0 +1,18 @@
+<main class="page-content">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Event</h1>
+
+  <div class="event-card">
+    <div class="artist"><%= @event.artist %></div>
+    <div class="description"><%= @event.description %></div>
+    <div class="date"><%= @event.event_date %></div>
+    <div class="price">from <%= number_to_currency(@event.price_low) %> to <%= number_to_currency(@event.price_high) %></div>
+  </div>
+
+  <div class="page-actions">
+    <%= link_to 'Back to event list', events_path %>
+  </div>
+
+</main>

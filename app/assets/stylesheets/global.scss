@@ -1,0 +1,70 @@
+@mixin clickable-element {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin clickable-element-active {
+  outline: none;
+  border: 1px solid #969696;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.15);
+  transform: translate(-2px, -2px);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em !important;
+
+  .field_with_errors {
+    background-color: inherit;
+    padding: 0;
+    display: flex;
+    input, textarea {
+      width: 100%;
+      border: 1px solid #cc1f12;
+    }
+  }
+
+  input, textarea {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 50em;
+  margin: 0 auto 2em;
+
+  h1 {
+    margin-bottom: 3rem;
+  }
+}
+
+.page-actions {
+  margin-top: 1.5rem;
+  display: flex;
+
+  > * {
+    @include clickable-element;
+    margin-right: 1em;
+  }
+
+  > *:hover, >*:active, >*:focus {
+    @include clickable-element-active;
+  }
+
+  > *, > *:hover, > *:visited {
+    color: inherit;
+    text-decoration: inherit;
+    background: inherit;
+  }
+}
