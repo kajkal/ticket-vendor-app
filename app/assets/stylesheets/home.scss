@@ -1,0 +1,35 @@
+@import 'mixins';
+
+.home-header {
+  .header-icon {
+    width: 150px;
+    height: 150px;
+  }
+  h1 {
+    font-size: 60px;
+    margin: auto 2rem;
+  }
+}
+
+.home-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+
+  .tile {
+    @include clickable-element;
+
+    &:hover, &:active, &:focus {
+      @include clickable-element-active;
+    }
+
+    align-self: center;
+    text-align: center;
+    font-size: 2em;
+    padding: 2em;
+    svg {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

@@ -3,6 +3,7 @@
   border-radius: 8px;
   padding: 1em;
   transition: all 0.2s ease-in-out;
+  background: inherit;
 }
 
 @mixin clickable-element-active {

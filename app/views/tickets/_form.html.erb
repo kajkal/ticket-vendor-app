@@ -46,7 +46,11 @@
     <%= form.text_field :event_id %>
   </div>
 
-  <div class="actions">ActiveRecord
+  <div class="field">
+    <%= form.hidden_field :user_id, :value =>current_user.id %>
+  </div>
+
+  <div class="form-actions">
     <%= form.submit %>
   </div>
 <% end %>

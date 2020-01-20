@@ -2,9 +2,7 @@
   <h1>Events</h1>
 </header>
 
-<main>
-  <p id="notice"><%= notice %></p>
-
+<section>
   <section class="event-list">
     <% @events.each do |event| %>
       <%= link_to event, class: "clean-anchor event-card" do %>
@@ -15,7 +13,7 @@
       <% end %>
     <% end %>
   </section>
-</main>
+</section>
 
 <footer>
   <%= link_to 'Add new Event', new_event_path, class: "clean-anchor" %>

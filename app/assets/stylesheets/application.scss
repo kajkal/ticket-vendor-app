@@ -1,43 +1,81 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "home";
 @import "tickets";
 @import "events";
 
 body {
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    width: 80rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+
+  nav {
+    border-radius: unset !important;
+    display: flex;
+    align-items: center;
+    .app-logo {
+      display: inline-flex;
+      align-items: center;
+      .header-icon {
+        fill: white;
+        width: 4rem;
+        height: 4rem;
+        margin: 1rem;
+      }
+      h1 {
+        padding: 0 1rem;
+      }
+    }
+    .links {
+      margin-left: auto;
+      & > * {
+        padding: 1rem 2rem;
+      }
+    }
+    a:hover {
+      color: rgba(255, 255, 255, 0.8) !important;
+    }
+  }
+
+  main {
+    width: 800px;
     margin: 0 auto 2rem;
-}
 
-header {
-  display: flex;
-  margin: 4rem 0;
-  h1 {
-    font-size: 4rem;
-    margin: auto 0;
+    header {
+      display: flex;
+      margin: 4rem 0;
+
+      h1 {
+        font-size: 4rem;
+        margin: auto 0;
+      }
+    }
+
+    section {
+      margin: 0 auto 2rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      display: flex;
+
+      > * {
+        @include clickable-element;
+        margin-right: 1em;
+      }
+
+      > *:hover, > *:active, > *:focus {
+        @include clickable-element-active;
+      }
+
+      > *, > *:hover, > *:visited {
+        color: inherit;
+        text-decoration: inherit;
+        background: inherit;
+      }
+    }
   }
 }
 
-footer {
-  margin-top: 4rem;
-  display: flex;
-
-  > * {
-    @include clickable-element;
-    margin-right: 1em;
-  }
-
-  > *:hover, > *:active, > *:focus {
-    @include clickable-element-active;
-  }
-
-  > *, > *:hover, > *:visited {
-    color: inherit;
-    text-decoration: inherit;
-    background: inherit;
-  }
-}
 
 .clean-anchor {
   &,
@@ -50,7 +88,6 @@ footer {
     text-decoration: none;
   }
 }
-
 
 .field {
   display: flex;
@@ -76,5 +113,26 @@ footer {
 
   textarea {
     resize: vertical;
+  }
+}
+
+.form-actions {
+  & > * {
+    @extend .clean-anchor;
+    @include clickable-element;
+    &:hover, &:active, &:focus {
+      @include clickable-element-active;
+    }
+  }
+}
+
+.icon-anchor {
+  @include clickable-element;
+  padding: 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover, &:active, &:focus {
+    @include clickable-element-active;
   }
 }

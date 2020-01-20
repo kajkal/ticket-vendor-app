@@ -1,5 +1,11 @@
-<h1>New Ticket</h1>
+<header>
+  <h1>New Ticket</h1>
+</header>
 
-<%= render 'form', ticket: @ticket %>
+<section>
+  <%= render 'form', ticket: @ticket %>
+</section>
 
-<%= link_to 'Back', tickets_path %>
+<footer>
+  <%= link_to 'Back to ticket list', tickets_path %>
+</footer>

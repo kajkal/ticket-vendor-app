@@ -1,8 +1,8 @@
-<table>
+<table style="border-spacing: 0.5em; border-collapse: separate;">
   <thead>
   <tr>
     <th>Name</th>
-    <th>Seat id seq</th>
+    <th>Seat</th>
     <th>Address</th>
     <th>Price</th>
     <th>Email address</th>
@@ -20,9 +20,25 @@
       <td><%= ticket.price %></td>
       <td><%= ticket.email_address %></td>
       <td><%= ticket.phone %></td>
-      <td><%= link_to 'Show', ticket %></td>
-      <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-      <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to ticket, class: 'clean-anchor icon-anchor' do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+      </td>
+
+      <% if ticket.user_id == current_user&.id %>
+        <td>
+          <%= link_to edit_ticket_path(ticket), class: 'clean-anchor icon-anchor' do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to ticket, method: :delete, data: { confirm: 'Are you sure?' }, class: 'clean-anchor icon-anchor' do %>
+            <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+        </td>
+      <% end %>
+
     </tr>
   <% end %>
   </tbody>

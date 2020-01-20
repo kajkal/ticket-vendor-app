@@ -2,9 +2,7 @@
   <h1>Event</h1>
 </header>
 
-<main>
-  <p id="notice"><%= notice %></p>
-
+<section>
   <div class="event-card">
     <div class="artist"><%= @event.artist %></div>
     <div class="description"><%= @event.description %></div>
@@ -39,14 +37,18 @@
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
         <div class="card-body">
-          <%= render "new_ticket", ticket: Ticket.new(:event_id => @event.id) %>
+          <% if current_user&.id.nil? %>
+          You must be logged first!
+          <%  else  %>
+            <%=   render "new_ticket", ticket: Ticket.new(:event_id => @event.id) %>
+          <% end %>
         </div>
       </div>
     </div>
 
   </div>
 
-</main>
+</section>
 
 <footer>
   <%= link_to 'Back to event list', events_path, class: "clean-anchor" %>
