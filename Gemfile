@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
+gem 'devise', '~> 4.7.1'
 
 
 # Use Active Storage variant
